@@ -1,0 +1,43 @@
+ MVP:
+ - user login/logout/create
+ - user navigate(limit permission)
+ - CRUD
+ 
+ Models:
+
+ User:
+- user login/logout/create
+- user navigate(limit permission)
+
+Auto:
+- details
+- auto model
+- title (String, required...)
+- description (String)
+- price (Number, required)
+- image
+- condition: {
+    type: String,
+    enum: ["new", "good condition", "trash"]
+    }
+- category:  {
+    type: String,
+    enum: ["clothes", "sports", "forniture"]
+    }
+- location: String
+- seller: {
+    type: Schema.Types.ObjectId,
+    ref. "User"
+}
+
+//Name
+Tech Car Solutioins
+ - occassion 
+ - New cars
+
+        J&M Auto occassions 
+            -motorbike occassions
+            -Auto occassions
+
+            Rent Machine
+
