@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 
 
-const autoSchema = new Schema(
+const carSchema = new Schema(
     {
         model: String,
         image: String,
@@ -33,4 +33,4 @@ const autoSchema = new Schema(
     }
 )
 
-module.exports = model('Auto', autoSchema)
+module.exports = model('Car', carSchema)
