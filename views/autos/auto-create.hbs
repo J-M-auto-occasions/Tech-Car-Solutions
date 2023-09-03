@@ -1,14 +1,14 @@
-{{!-- <h2>Create a book</h2>
+{{!-- <h2>Create a Car</h2>
 
 
-<form method="POST" action="./user-create.hbs">
-    <label> Title:
-        <input type="text" name="title" />
+<form method="POST" action="./auto-create.hbs">
+    <label> Make:
+        <input type="text" name="make" />
     </label>
 
-    <label> Author:
+    <label> Model:
         <select name="author">
-            {{#each authors}}
+            {{#each model}}
                 <option value={{this._id}}>{{this.name}} multiple </option>
             {{/each}}
         </select>
