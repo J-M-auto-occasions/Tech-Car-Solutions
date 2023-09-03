@@ -10,7 +10,6 @@ const isLoggedIn = require("../middleware/isLoggedIn");
 router.get("/cars", (req, res, next) => {
 
     Car.find()
-        .populate("seller")
         .then((carsFromDB) => {
             console.log("Hola")
             res.render("cars/car-list", { cars: carsFromDB })
@@ -38,7 +37,7 @@ router.get("/cars/create", (req, res, next) => {
     })
 })
 
-router.post("cars/create", (req, res, next)=>{
+router.post("/cars/create", (req, res, next)=>{
 
     const newCar = {
         model: req.body.model,
@@ -66,5 +65,6 @@ router.post("cars/create", (req, res, next)=>{
 })
 
 // edit cars from DB
+
 
 module.exports = router

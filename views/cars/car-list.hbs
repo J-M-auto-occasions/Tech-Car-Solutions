@@ -1,0 +1,21 @@
+<h1>Cars for sale:</h1>
+
+{{#each cars}}
+<section>
+
+    <h2>{{this.model}}</h2>
+    <p>
+        Price: {{this.price}} <br />
+        Seller: {{this.seller}} <br />
+        Registration: {{this.registration}} <br />
+        KM driven: {{this.kmDriven}} <br />
+        Transmission: {{this.transmission}} <br />
+        Power: {{this.power}} <br />
+        Location: {{this.location}} <br />
+    </p>
+
+
+</section>
+
+<hr />
+{{/each}}

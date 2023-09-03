@@ -1,25 +1,41 @@
 <h2>Create a Car</h2>
 
 
-<form method="POST" action="./car-create.hbs">
-    <label> Make:
-        <input type="text" name="make" />
-    </label>
-
+<form method="POST" action="/cars/create">
     <label> Model:
-        <select name="author">
-            {{#each model}}
-                <option value={{this._id}}>{{this.name}} multiple </option>
-            {{/each}}
-        </select>
+        <input type="text" name="model" />
     </label>
 
-    <label> Description:
-        <textarea name="description" cols="30" rows="4"> </textarea>
+    <label> Image:
+            <input type="text" name="image">
     </label>
 
-    <label> Rate:
-        <input type="number" name="rating" min="1" max="10" />
+    <label> Price:
+        <input type="number" name="price"/>
+    </label>
+
+     <label> Seller:
+            <input type="text" name="seller">
+    </label>
+
+    <label> Registration:
+             <input type="number" name="registration">
+    </label>
+
+    <label> KM driven:
+             <input type="number" name="kmDriven">
+    </label>
+    
+    <label> Transmission:
+            <input type="text" name="transmission">
+    </label>
+
+    <label> Power:
+             <input type="number" name="power">
+    </label>
+
+    <label> location:
+            <input type="text" name="location">
     </label>
 
     <button type="submit"> Create </button>

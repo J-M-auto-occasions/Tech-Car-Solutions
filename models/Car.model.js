@@ -7,25 +7,27 @@ const carSchema = new Schema(
         image: String,
         price: Number,
         seller: {
-            type: Schema.Types.ObjectId,
-            ref: "User"
+            type: String
+            //type: Schema.Types.ObjectId,
+            //ref: "User"
         },
         registration: {
             type: Number,
-            enum: [1990, 1991, 2023]
+           // enum: [1990, 1991, 2023]
         },
         kmDriven: {
             type: Number,
-            enum: [1000, 1000 - 5000, 200.000]
+            //enum: [1000, 1000 - 5000, 200.000]
         },
         transmission: {
             type: String,
-            enum: ['automatic', 'manual']
+            //enum: ['automatic', 'manual']
         },
         power: Number,
         location: {
-            country: String,
-            city: String
+            type: String
+            //country: String,
+           // city: String
         }
     },
     {
@@ -33,4 +35,6 @@ const carSchema = new Schema(
     }
 )
 
-module.exports = model('Car', carSchema)
+const Car = model("Car", carSchema);
+
+module.exports = Car
