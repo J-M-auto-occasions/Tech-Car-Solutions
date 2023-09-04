@@ -16,12 +16,12 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /auth/signup
-router.get("/signup", isLoggedOut, (req, res) => {
+router.get("/signup", /*isLoggedOut,*/ (req, res) => {
   res.render("auth/signup");
 });
 
 // POST /auth/signup
-router.post("/signup", isLoggedOut, (req, res) => {
+router.post("/signup", /*isLoggedOut,*/ (req, res) => {
   const { username, email, password } = req.body;
 
   // Check that username, email, and password are provided
@@ -30,7 +30,6 @@ router.post("/signup", isLoggedOut, (req, res) => {
       errorMessage:
         "All fields are mandatory. Please provide your username, email and password.",
     });
-
     return;
   }
 
@@ -64,7 +63,7 @@ router.post("/signup", isLoggedOut, (req, res) => {
       return User.create({ username, email, password: hashedPassword });
     })
     .then((user) => {
-      res.redirect("/auth/login");
+      res.redirect("/login");
     })
     .catch((error) => {
       if (error instanceof mongoose.Error.ValidationError) {
@@ -81,12 +80,12 @@ router.post("/signup", isLoggedOut, (req, res) => {
 });
 
 // GET /auth/login
-router.get("/login", isLoggedOut, (req, res) => {
+router.get("/login", /*isLoggedOut,*/ (req, res) => {
   res.render("auth/login");
 });
 
 // POST /auth/login
-router.post("/login", isLoggedOut, (req, res, next) => {
+router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
   const { username, email, password } = req.body;
 
   // Check that username, email, and password are provided
@@ -131,10 +130,11 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 
           // Add the user object to the session object
           req.session.currentUser = user.toObject();
+          console.log(user)
           // Remove the password field
           delete req.session.currentUser.password;
 
-          res.redirect("/");
+          res.redirect("/profile");
         })
         .catch((err) => next(err)); // In this case, we send error handling to the error handling middleware.
     })
@@ -142,7 +142,7 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 // GET /auth/logout
-router.get("/logout", isLoggedIn, (req, res) => {
+router.get("/logout", /*isLoggedIn,*/ (req, res) => {
   req.session.destroy((err) => {
     if (err) {
       res.status(500).render("auth/logout", { errorMessage: err.message });
@@ -152,5 +152,15 @@ router.get("/logout", isLoggedIn, (req, res) => {
     res.redirect("/");
   });
 });
+
+
+router.get("/profile", isLoggedIn, (req, res) => {
+
+  const data = {
+      currentUser: req.session.currentUser
+  }
+  console.log("HEREE", data)
+  res.render('auth/user-profile', data)
+})
 
 module.exports = router;
