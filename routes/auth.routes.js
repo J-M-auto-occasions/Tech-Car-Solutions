@@ -16,12 +16,12 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
 // GET /auth/signup
-router.get("/signup", /*isLoggedOut,*/ (req, res) => {
+router.get("/signup", /*isLoggedOut,*/(req, res) => {
   res.render("auth/signup");
 });
 
 // POST /auth/signup
-router.post("/signup", /*isLoggedOut,*/ (req, res) => {
+router.post("/signup", /*isLoggedOut,*/(req, res) => {
   const { username, email, password } = req.body;
 
   // Check that username, email, and password are provided
@@ -42,7 +42,7 @@ router.post("/signup", /*isLoggedOut,*/ (req, res) => {
   }
 
   //   ! This regular expression checks password for special characters and minimum length
-  
+
   // const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
   // if (!regex.test(password)) {
   //   res
@@ -52,7 +52,7 @@ router.post("/signup", /*isLoggedOut,*/ (req, res) => {
   //   });
   //   return;
   // }
-  
+
 
   // Create a new user - start by hashing the password
   bcrypt
@@ -80,12 +80,12 @@ router.post("/signup", /*isLoggedOut,*/ (req, res) => {
 });
 
 // GET /auth/login
-router.get("/login", /*isLoggedOut,*/ (req, res) => {
+router.get("/login", isLoggedOut, (req, res) => {
   res.render("auth/login");
 });
 
 // POST /auth/login
-router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
+router.post("/login", isLoggedOut, (req, res, next) => {
   const { username, email, password } = req.body;
 
   // Check that username, email, and password are provided
@@ -130,7 +130,7 @@ router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
 
           // Add the user object to the session object
           req.session.currentUser = user.toObject();
-          console.log(user)
+
           // Remove the password field
           delete req.session.currentUser.password;
 
@@ -142,24 +142,20 @@ router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
 });
 
 // GET /auth/logout
-router.get("/logout", /*isLoggedIn,*/ (req, res) => {
+router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
-    if (err) {
-      res.status(500).render("auth/logout", { errorMessage: err.message });
-      return;
-    }
-
-    res.redirect("/");
+    if (err) next(err);
+    res.redirect('/')
   });
 });
 
 
-router.get("/profile", isLoggedIn, (req, res) => {
+
+router.get("/profile", (req, res) => {
 
   const data = {
-      currentUser: req.session.currentUser
+    currentUser: req.session.currentUser
   }
-  console.log("HEREE", data)
   res.render('auth/user-profile', data)
 })
 
