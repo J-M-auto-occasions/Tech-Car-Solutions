@@ -1,45 +1,42 @@
 <h2>Edit the Car: {{car.model}}</h2>
-
-<form method="POST" action="/cars/{{car._id}}edit">
+<h4>{{car._id}}</h4>
+<form method="POST" action="/cars/{{car._id}}/edit">
     <label> Model:
         <input type="text" name="model" value="{{car.model}}">
     </label>
 
     <label> Image:
-            <input type="text" name="image" value="{{car.image}}">
+        <input type="text" name="image" value="{{car.image}}">
     </label>
 
     <label> Price:
         <input type="number" name="price" value="{{car.price}}">
     </label>
 
-     <label> Seller:
-            <input type="text" name="seller" value="{{car.seller}}">
+    <label> Seller:
+        <input type="text" name="seller" value="{{car.seller}}">
     </label>
 
     <label> Registration:
-             <input type="number" name="registration" value="{{car.registration}}">
+        <input type="number" name="registration" value="{{car.registration}}">
     </label>
 
     <label> KM driven:
-             <input type="number" name="kmDriven" value="{{car.kmdriven}}">
+        <input type="number" name="kmDriven" value="{{car.kmdriven}}">
     </label>
-    
+
     <label> Transmission:
-            <input type="text" name="transmission" value="{{car.transmission}}">
+        <input type="text" name="transmission" value="{{car.transmission}}">
     </label>
 
     <label> Power:
-             <input type="number" name="power" value="{{car.power}}">
+        <input type="number" name="power" value="{{car.power}}">
     </label>
 
     <label> location:
-            <input type="text" name="location" value="{{car.location}}">
+        <input type="text" name="location" value="{{car.location}}">
     </label>
 
-    <button type="submit"> Edit </button>
+    <button type="submit"> Save </button>
 </form>
 
-
-    <button>Save changes</button>
-</form>

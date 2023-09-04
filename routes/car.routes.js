@@ -66,33 +66,44 @@ router.post("/cars/create", (req, res, next)=>{
 
 // edit cars from DB 
 
-router.get('/cars/:carId/edit', /*isLoggedIn,*/ async (req, res, next) => {
+router.get('/cars/:carId/edit', /*isLoggedIn,*/ async  (req, res, next) => {
+    const {} = req.body
     const { carId } = req.params;
+    // console.log("body",req.body)
+    // console.log("params", req.params)
+    // Car.findByIdAndUpdate(carId)
+    //     .then((carFromDB) => {
+    //         const data = {
+    //             car: carFromDB,
+    //         }
+    //         res.render("cars/car-edit", data)
+    //     })
+    //     .catch((e) => { console.log(e) })
 
-try {
-    const carDetails = await Car.findById(carId);
+    try {
+        const carDetails = await Car.findById(carId);
 
-    const data = { 
-        car: carDetails,
-    }
-        res.render("cars/car-edit.hbs", data)
-    } catch(error){
+        const data = {
+            car: carDetails,
+        }
+        res.render("cars/car-edit", data)
+    } catch (error) {
         next(error)
     }
 });
 
 // UPDATE: process form
-router.post("cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
+router.post("/cars/:carId/edit", /*isLoggedIn,*/(req, res, next) => {
     const { carId } = req.params;
-    const {model, img, price, seller, registration, kmDriven, transmission,power ,location} = req.body;
+    const { model, img, price, seller, registration, kmDriven, transmission, power, location } = req.body;
 
-    Car.findByIdAndUpdate(carId, {model, img, price, seller, registration, kmDriven, transmission,power ,location}, { new: true })
-        .then(updatedCar => res.redirect(`/cars/${updatedCar.id}`)) // go to the details page to see the updates
+    Car.findByIdAndUpdate(carId, { model, img, price, seller, registration, kmDriven, transmission, power, location }, { new: true })
+        .then(updatedCar => res.redirect(`/cars/${updatedCar._id}/edit`)) // go to the details page to see the updates
         .catch(error => next(error));
 });
 
 // DELETE: delete book
-router.post("/cars/:carId/delete", /*isLoggedIn,*/ (req, res, next) => {
+router.post("/cars/:carId/delete", /*isLoggedIn,*/(req, res, next) => {
     const { carId } = req.params;
 
     Car.findByIdAndDelete(carId)
@@ -102,7 +113,7 @@ router.post("/cars/:carId/delete", /*isLoggedIn,*/ (req, res, next) => {
 
 
 
-// READ: display details of one book
+// READ: display details of car
 router.get("/cars/:carId", (req, res, next) => {
     const id = req.params.carId;
     Car.findById(id)
