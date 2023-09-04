@@ -75,14 +75,14 @@ try {
     const data = { 
         car: carDetails,
     }
-        res.render('cars/car-edit.hbs', data)
+        res.render("cars/car-edit.hbs", data)
     } catch(error){
         next(error)
     }
 });
 
 // UPDATE: process form
-router.post('cars/:carId/edit', /*isLoggedIn,*/ (req, res, next) => {
+router.post("cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
     const { carId } = req.params;
     const {model, img, price, seller, registration, kmDriven, transmission,power ,location} = req.body;
 
@@ -90,6 +90,33 @@ router.post('cars/:carId/edit', /*isLoggedIn,*/ (req, res, next) => {
         .then(updatedCar => res.redirect(`/cars/${updatedCar.id}`)) // go to the details page to see the updates
         .catch(error => next(error));
 });
+
+// DELETE: delete book
+router.post("/cars/:carId/delete", /*isLoggedIn,*/ (req, res, next) => {
+    const { carId } = req.params;
+
+    Car.findByIdAndDelete(carId)
+        .then(() => res.redirect('/cars'))
+        .catch(error => next(error));
+});
+
+
+
+// READ: display details of one book
+router.get("/cars/:carId", (req, res, next) => {
+    const id = req.params.carId;
+    Car.findById(id)
+        .then(carFromDB => {
+            res.render("cars/car-details", carFromDB);
+        })
+        .catch((e) => {
+            console.log("Error getting book details from DB", e);
+            next(e);
+        })
+
+})
+
+
 
 
 module.exports = router

@@ -2,39 +2,39 @@
 
 <form method="POST" action="/cars/{{car._id}}edit">
     <label> Model:
-        <input type="text" name="model">{{car.model}}
+        <input type="text" name="model" value="{{car.model}}">
     </label>
 
     <label> Image:
-            <input type="text" name="image">{{car.image}}
+            <input type="text" name="image" value="{{car.image}}">
     </label>
 
     <label> Price:
-        <input type="number" name="price"/>{{car.price}}
+        <input type="number" name="price" value="{{car.price}}">
     </label>
 
      <label> Seller:
-            <input type="text" name="seller">{{car.seller}}
+            <input type="text" name="seller" value="{{car.seller}}">
     </label>
 
     <label> Registration:
-             <input type="number" name="registration">{{car.registration}}
+             <input type="number" name="registration" value="{{car.registration}}">
     </label>
 
     <label> KM driven:
-             <input type="number" name="kmDriven">{{car.kmdriven}}
+             <input type="number" name="kmDriven" value="{{car.kmdriven}}">
     </label>
     
     <label> Transmission:
-            <input type="text" name="transmission">{{car.transmission}}
+            <input type="text" name="transmission" value="{{car.transmission}}">
     </label>
 
     <label> Power:
-             <input type="number" name="power">{{car.power}}
+             <input type="number" name="power" value="{{car.power}}">
     </label>
 
     <label> location:
-            <input type="text" name="location">{{car.location}}
+            <input type="text" name="location" value="{{car.location}}">
     </label>
 
     <button type="submit"> Edit </button>
