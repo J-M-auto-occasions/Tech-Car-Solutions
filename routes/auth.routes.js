@@ -80,12 +80,12 @@ router.post("/signup", /*isLoggedOut,*/(req, res) => {
 });
 
 // GET /auth/login
-router.get("/login", isLoggedOut, (req, res) => {
+router.get("/login", /*isLoggedOut,*/ (req, res) => {
   res.render("auth/login");
 });
 
 // POST /auth/login
-router.post("/login", isLoggedOut, (req, res, next) => {
+router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
   const { username, email, password } = req.body;
 
   // Check that username, email, and password are provided
@@ -142,11 +142,12 @@ router.post("/login", isLoggedOut, (req, res, next) => {
 });
 
 // GET /auth/logout
-router.post("/logout", isLoggedIn, (req, res, next) => {
+router.post("/logout", /*isLoggedIn,*/ (req, res, next) => {
   req.session.destroy((err) => {
     if (err) next(err);
     res.redirect('/')
   });
+ // console.log(req.session.currentUser)
 });
 
 

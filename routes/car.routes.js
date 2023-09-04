@@ -4,6 +4,7 @@ const User = require("../models/User.model")
 const router = express.Router();
 
 const isLoggedIn = require("../middleware/isLoggedIn");
+const isLoggedOut = require("../middleware/isLoggedOut")
 
 //display cars from DB
 
@@ -23,7 +24,7 @@ router.get("/cars", (req, res, next) => {
 
 //create cars from DB
 
-router.get("/cars/create", (req, res, next) => {
+router.get("/cars/create", isLoggedIn, (req, res, next) => {
     User.find()
     .then( usersFromDB => {
         const data = {
@@ -37,7 +38,7 @@ router.get("/cars/create", (req, res, next) => {
     })
 })
 
-router.post("/cars/create", (req, res, next)=>{
+router.post("/cars/create", isLoggedIn, (req, res, next)=>{
 
     const newCar = {
         model: req.body.model,
@@ -66,19 +67,9 @@ router.post("/cars/create", (req, res, next)=>{
 
 // edit cars from DB 
 
-router.get('/cars/:carId/edit', /*isLoggedIn,*/ async  (req, res, next) => {
+router.get('/cars/:carId/edit', isLoggedIn, async  (req, res, next) => {
     const {} = req.body
     const { carId } = req.params;
-    // console.log("body",req.body)
-    // console.log("params", req.params)
-    // Car.findByIdAndUpdate(carId)
-    //     .then((carFromDB) => {
-    //         const data = {
-    //             car: carFromDB,
-    //         }
-    //         res.render("cars/car-edit", data)
-    //     })
-    //     .catch((e) => { console.log(e) })
 
     try {
         const carDetails = await Car.findById(carId);
@@ -93,17 +84,19 @@ router.get('/cars/:carId/edit', /*isLoggedIn,*/ async  (req, res, next) => {
 });
 
 // UPDATE: process form
-router.post("/cars/:carId/edit", /*isLoggedIn,*/(req, res, next) => {
+router.post("/cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
     const { carId } = req.params;
     const { model, img, price, seller, registration, kmDriven, transmission, power, location } = req.body;
 
-    Car.findByIdAndUpdate(carId, { model, img, price, seller, registration, kmDriven, transmission, power, location }, { new: true })
-        .then(updatedCar => res.redirect(`/cars/${updatedCar._id}/edit`)) // go to the details page to see the updates
+    Car.findByIdAndUpdate(carId, 
+        { model, img, price, seller, registration, kmDriven, transmission, power, location }, 
+        { new: true })
+        .then(updatedCar => res.redirect(`/cars`)) // go to the details page to see the updates
         .catch(error => next(error));
 });
 
 // DELETE: delete book
-router.post("/cars/:carId/delete", /*isLoggedIn,*/(req, res, next) => {
+router.post("/cars/:carId/delete", /*isLoggedIn,*/ (req, res, next) => {
     const { carId } = req.params;
 
     Car.findByIdAndDelete(carId)
