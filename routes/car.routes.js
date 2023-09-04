@@ -66,7 +66,7 @@ router.post("/cars/create", (req, res, next)=>{
 
 // edit cars from DB 
 
-router.get('/cars/:carId/edit', isLoggedIn, async (req, res, next) => {
+router.get('/cars/:carId/edit', /*isLoggedIn,*/ async (req, res, next) => {
     const { carId } = req.params;
 
 try {
@@ -82,7 +82,7 @@ try {
 });
 
 // UPDATE: process form
-router.post('cars/:carId/edit', isLoggedIn, (req, res, next) => {
+router.post('cars/:carId/edit', /*isLoggedIn,*/ (req, res, next) => {
     const { carId } = req.params;
     const {model, img, price, seller, registration, kmDriven, transmission,power ,location} = req.body;
 
