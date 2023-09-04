@@ -1,0 +1,45 @@
+<h2>Edit the Car: {{car.model}}</h2>
+
+<form method="POST" action="/cars/{{car._id}}edit">
+    <label> Model:
+        <input type="text" name="model">{{car.model}}
+    </label>
+
+    <label> Image:
+            <input type="text" name="image">{{car.image}}
+    </label>
+
+    <label> Price:
+        <input type="number" name="price"/>{{car.price}}
+    </label>
+
+     <label> Seller:
+            <input type="text" name="seller">{{car.seller}}
+    </label>
+
+    <label> Registration:
+             <input type="number" name="registration">{{car.registration}}
+    </label>
+
+    <label> KM driven:
+             <input type="number" name="kmDriven">{{car.kmdriven}}
+    </label>
+    
+    <label> Transmission:
+            <input type="text" name="transmission">{{car.transmission}}
+    </label>
+
+    <label> Power:
+             <input type="number" name="power">{{car.power}}
+    </label>
+
+    <label> location:
+            <input type="text" name="location">{{car.location}}
+    </label>
+
+    <button type="submit"> Edit </button>
+</form>
+
+
+    <button>Save changes</button>
+</form>
