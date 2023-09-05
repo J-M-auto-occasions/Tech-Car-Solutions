@@ -3,10 +3,12 @@
 {{#each cars}}
 <section>
 
-    <h2>{{this.model}} {{this.make}}</h2>
+    <h2>{{this.make}} {{this.model}}</h2>
+       <img src={{this.image}} alt=""> 
     <p>
         Price: {{this.price}} <br />
         Seller: {{this.seller}} <br />
+        Year: {{this.year}} <br />
         Registration: {{this.year}} <br />
         KM driven: {{this.kmDriven}} <br />
         Transmission: {{this.transmission}} <br />

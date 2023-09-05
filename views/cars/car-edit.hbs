@@ -1,5 +1,5 @@
 <h2>Edit the Car: {{car.model}}</h2>
-<h4>{{car._id}}</h4>
+
 <form method="POST" action="/cars/{{car._id}}/edit">
     <label> Model:
         <input type="text" name="model" value="{{car.model}}">
@@ -22,7 +22,7 @@
     </label>
 
     <label> KM driven:
-        <input type="number" name="kmDriven" value="{{car.kmdriven}}">
+        <input type="number" name="kmDriven" min="1" max="200000" value="{{car.kmdriven}}">
     </label>
 
     <label> Transmission:

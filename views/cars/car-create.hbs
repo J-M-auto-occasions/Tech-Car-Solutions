@@ -2,41 +2,44 @@
 
 
 <form method="POST" action="/cars/create">
-    <label> Model:
-        <input type="text" name="model" />
-    </label>
+        <label> Make:
+                <input type="text" name="make" />
+        </label>
+        <label> Model:
+                <input type="text" name="model" />
+        </label>
 
-    <label> Image:
-            <input type="text" name="image">
-    </label>
+        <label> Image:
+                <input type="text" name="image">
+        </label>
 
-    <label> Price:
-        <input type="number" name="price"/>
-    </label>
+        <label> Price:
+                <input type="number" name="price" />
+        </label>
 
-     <label> Seller:
-            <input type="text" name="seller">
-    </label>
+        <label> Seller:
+                <input type="text" name="seller">
+        </label>
 
-    <label> Registration:
-             <input type="number" name="registration">
-    </label>
+        <label> Year:
+                <input type="number" name="year">
+        </label>
 
-    <label> KM driven:
-             <input type="number" name="kmDriven">
-    </label>
-    
-    <label> Transmission:
-            <input type="text" name="transmission">
-    </label>
+        <label> KM driven:
+                <input type="number" min="1" max="200000" name="kmDriven">
+        </label>
 
-    <label> Power:
-             <input type="number" name="power">
-    </label>
+        <label> Transmission:
+                <input type="text" name="transmission">
+        </label>
 
-    <label> location:
-            <input type="text" name="location">
-    </label>
+        <label> Power:
+                <input type="number" name="power">
+        </label>
 
-    <button type="submit"> Create </button>
+        <label> Location:
+                <input type="text" name="location">
+        </label>
+
+        <button type="submit"> Create </button>
 </form>

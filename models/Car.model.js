@@ -18,7 +18,6 @@ const carSchema = new Schema(
         },
         kmDriven: {
             type: Number,
-            //enum: [1000, 1000 - 5000, 200.000]
         },
         transmission: {
             type: String,
