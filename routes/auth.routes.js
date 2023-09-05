@@ -15,6 +15,8 @@ const User = require("../models/User.model");
 const isLoggedOut = require("../middleware/isLoggedOut");
 const isLoggedIn = require("../middleware/isLoggedIn");
 
+
+
 // GET /auth/signup
 router.get("/signup", isLoggedOut,(req, res) => {
   res.render("auth/signup");
@@ -147,7 +149,6 @@ router.post("/logout", /*isLoggedIn,*/ (req, res, next) => {
     if (err) next(err);
     res.redirect('/')
   });
- // console.log(req.session.currentUser)
 });
 
 
@@ -161,3 +162,4 @@ router.get("/profile", (req, res) => {
 })
 
 module.exports = router;
+

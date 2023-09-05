@@ -3,15 +3,15 @@ const { Schema, model } = require('mongoose');
 
 const carSchema = new Schema(
     {
+        owner: {
+            type: Schema.Types.ObjectId,
+            ref: "User"
+        },
         make: String,
         model: String,
         image: String,
         price: Number,
-        seller: {
-            type: String
-            //type: Schema.Types.ObjectId,
-            //ref: "User"
-        },
+        seller: String,
         year: {
             type: Number,
            // enum: [1990, 1991, 2023]
