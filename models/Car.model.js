@@ -20,8 +20,8 @@ const carSchema = new Schema(
             type: Number,
         },
         transmission: {
-            type: String,
-            //enum: ['automatic', 'manual']
+            type: [String],
+            // enum: ['automatic', 'manual']
         },
         power: Number,
         location: {
