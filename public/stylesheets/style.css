@@ -1,29 +1,40 @@
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
 }
 
-a {
-  color: #00b7ff;
+header.container {
+  width: 100%;
+  background-color: #007BFF; /* Change this to your desired background color */
+  text-align: center;
+  padding: 10px 0;
 }
 
-h1 {
-  color: 15px;
+.navbar-brand {
+  color: rgb(0, 0, 0); /* Change the text color */
+  font-size: 24px; /* Adjust the font size */
+  font-weight: bold;
+  text-decoration: none;
 }
 
 nav {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  padding-top: 1rem;
-  margin-bottom: 3rem;
+  background-color: #f8f9fa; /* Change this to your desired background color */
+  padding: 10px 0;
+  width: 100%;
+  text-align: center;
 }
 
 nav a {
-  padding: 0 1rem;
-  border-right: 1px solid #999;
+  color: #333; /* Change the link text color */
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 16px; /* Adjust the font size */
+  font-weight: bold;
 }
 
-nav a:last-child {
-  border-right: none;
+nav a:hover {
+  color: #007BFF; /* Change the link color on hover */
 }

@@ -69,7 +69,14 @@
         </label>
 
         <label> Power:
-                <input type="number" name="power">
+        <select name="power" value="{{car.power}}">
+            <option value="0">-</option>
+            <option value="60-120">60-120</option>
+            <option value="120-220">120-220</option>
+            <option value="220-320">220-320</option>
+            <option value="320-420">320-420</option>
+        </select>
+
         </label>
 
         <label> Location:
