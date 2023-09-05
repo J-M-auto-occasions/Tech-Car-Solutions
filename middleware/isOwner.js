@@ -1,15 +1,17 @@
 const Car = require("../models/Car.model")
 
-function isOwner(req, res, next){
-    
-    Car.findById(req.params.carId)
-    if (req.session.currentUser.id === req.params){
+async function isOwner(req, res, next) {
+
+    const car = await Car.findById(req.params.carId)
+
+    if (car.owner && req.session.currentUser._id === car.owner.toString()) {
+
         next()
     } else {
         res.status(401)
-        .render("auth/user-profile", { errorMessage: "Unauthorized" });
+            .render("error", { errorMessage: "Unauthorized", currentUser: req.session.currentUser });
     }
 
-  }
-  
-  module.exports = isOwner
+}
+
+module.exports = isOwner

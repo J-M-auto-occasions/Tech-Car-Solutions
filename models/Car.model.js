@@ -14,16 +14,14 @@ const carSchema = new Schema(
         seller: String,
         year: {
             type: Number,
-           // enum: [1990, 1991, 2023]
         },
         kmDriven: {
             type: Number,
         },
         transmission: {
             type: [String],
-            // enum: ['automatic', 'manual']
         },
-        power: Number,
+        power: String,
         location: {
             type: String
             //country: String,
