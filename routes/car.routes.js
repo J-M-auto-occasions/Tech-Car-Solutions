@@ -96,7 +96,7 @@ router.post("/cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
 });
 
 // DELETE: delete book
-router.post("/cars/:carId/delete", /*isLoggedIn,*/ (req, res, next) => {
+router.post("/cars/:carId/delete", isLoggedIn, (req, res, next) => {
     const { carId } = req.params;
 
     Car.findByIdAndDelete(carId)
