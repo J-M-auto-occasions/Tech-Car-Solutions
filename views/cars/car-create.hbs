@@ -25,9 +25,16 @@
                 <input type="number" min="1" max="200000" name="kmDriven">
         </label>
 
-        <label> Transmission:
+        {{!-- <label> Transmission:
                 <input type="text" name="transmission">
-        </label>
+        </label> --}}
+
+            <label> Transmission:
+        <select name="transmission" value="{{car.transmission}}">
+            <option value="manual">manual</option>
+            <option value="automatic">automatic</option>
+        </select>
+    </label>
 
         <label> Power:
                 <input type="number" name="power">
