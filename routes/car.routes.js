@@ -4,7 +4,8 @@ const User = require("../models/User.model")
 const router = express.Router();
 
 const isLoggedIn = require("../middleware/isLoggedIn");
-const isLoggedOut = require("../middleware/isLoggedOut")
+const isLoggedOut = require("../middleware/isLoggedOut");
+const isOwner = require("../middleware/isOwner")
 
 
 //display cars from DB
@@ -69,7 +70,7 @@ router.post("/cars/create", isLoggedIn, (req, res, next)=>{
 
 // edit cars from DB 
 
-router.get('/cars/:carId/edit', isLoggedIn, async  (req, res, next) => {
+router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => {
     const {} = req.body
     const { carId } = req.params;
 

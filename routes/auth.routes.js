@@ -153,13 +153,5 @@ router.post("/logout", /*isLoggedIn,*/ (req, res, next) => {
 
 
 
-router.get("/profile", (req, res) => {
-
-  const data = {
-    currentUser: req.session.currentUser
-  }
-  res.render('auth/user-profile', data)
-})
-
 module.exports = router;
 
