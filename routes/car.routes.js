@@ -88,10 +88,10 @@ router.get('/cars/:carId/edit', isLoggedIn, async  (req, res, next) => {
 // UPDATE: process form
 router.post("/cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
     const { carId } = req.params;
-    const { model, img, price, seller, registration, kmDriven, transmission, power, location } = req.body;
+    const { make, model, image, price, seller, year, kmDriven, transmission, power, location } = req.body;
 
     Car.findByIdAndUpdate(carId, 
-        { model, img, price, seller, registration, kmDriven, transmission, power, location }, 
+        { make, model, image, price, seller, year, kmDriven, transmission, power, location }, 
         { new: true })
         .then(updatedCar => res.redirect(`/cars`)) // go to the details page to see the updates
         .catch(error => next(error));
