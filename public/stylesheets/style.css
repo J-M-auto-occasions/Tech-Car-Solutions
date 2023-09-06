@@ -47,18 +47,18 @@ header.container {
 }
 
 .nav-item {
-  background-color: #1a1a1a;
+  background-color: #bfbfbf;
 }
 
 .navbar-brand {
-  color: rgb(0, 0, 0); 
+  color: rgb(0, 72, 207); 
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
 }
 
 nav {
-  background-color: #000000; 
+  background-color: #696969; 
   padding: 10px 0;
   width: 100%;
   text-align: center;
