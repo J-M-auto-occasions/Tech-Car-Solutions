@@ -8,7 +8,7 @@ body {
 
 header.container {
   width: 100%;
-  background-color: #6b6b6b; 
+  background-color: #6b6b6b;
   text-align: center;
   padding: 12px 0;
 }
@@ -31,40 +31,40 @@ p {
 }
 
 .navbar-brand {
-  color: rgb(0, 72, 207); 
+  color: rgb(0, 72, 207);
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
   text-decoration: dotted;
   text-shadow: #1a1a1a;
-  text-align: left ;
+  text-align: left;
 }
 
 
 
 nav {
-  background-color: #696969; 
+  background-color: #696969;
   padding: 10px 0;
   width: 100%;
   text-align: center;
 }
 
 nav a {
-  color: #333; 
+  color: #333;
   text-decoration: none;
   margin: 0 10px;
-  font-size: 16px; 
+  font-size: 16px;
   font-weight: bold;
 }
 
 nav a:hover {
-  color: #007BFF; 
+  color: #007BFF;
 }
 
 .car-image {
   width: 200px;
-  height: 150px; 
-} 
+  height: 150px;
+}
 
 
 body {
@@ -83,7 +83,8 @@ header {
 }
 
 .logo img {
-  max-width: 100px; /* Adjust the size as needed */
+  max-width: 100px;
+  /* Adjust the size as needed */
   height: auto;
 }
 
@@ -111,5 +112,16 @@ nav a {
 
 /* Style the links on hover */
 nav a:hover {
-  color: #ff6600; /* Change this color to your preference */
+  color: #ff6600;
+  /* Change this color to your preference */
+}
+
+/* Style for the button */
+#logout-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
 }
