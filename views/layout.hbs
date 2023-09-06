@@ -24,10 +24,10 @@
                   <a class="nav-link" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/cars">Cars for Sale</a>
+                  <a class="nav-link" href="/cars">Buy a car</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="/cars/create">Create new car</a>
+                  <a class="nav-link" href="/cars/create">Sell a car</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="/profile">My Profile</a>
@@ -41,6 +41,9 @@
     </div>
 </nav>
 
+
+{{#if currentUser}}
+
 <body>
       <div class="button-container">
         <form id="logout-form" action="/logout" method="POST">
@@ -48,6 +51,8 @@
         </form>
     </div>
 </body>
+
+{{/if}}
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   </head>
