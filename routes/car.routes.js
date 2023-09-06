@@ -54,13 +54,10 @@ router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res,
         transmission: req.body.transmission,
         power: req.body.power,
         location: req.body.location
-        //embedded elements still must be populated
     }
 
     Car.create(newCar)
     .then(()=>{
-
-        console.log(newCar)
         res.redirect("/cars")
     })
     .catch(e => {
