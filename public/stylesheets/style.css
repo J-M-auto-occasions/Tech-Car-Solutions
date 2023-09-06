@@ -19,6 +19,48 @@ body.homepage .homepage-carousel {
   border-image-width: 400px;
 }
 
+/* Custom CSS for smoother carousel movement */
+.carousel-inner {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Optional: Adjust the slide transition speed */
+.carousel-item {
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Customize carousel indicators */
+.carousel-indicators {
+  bottom: 10px;
+}
+
+.carousel-indicators li {
+  background-color: #007BFF; /* Change indicator background color */
+  border: 1px solid #fff; /* Change indicator border color */
+}
+
+.carousel-indicators li.active {
+  background-color: #fff; /* Change active indicator background color */
+}
+
+/* Customize carousel control buttons */
+/* .carousel-control-prev,
+.carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5); /* Change button background color */
+  /* border-radius: 5%; /* Make the buttons round */
+  /* padding: 5px; /* Increase button size */
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: #fff; /* Change button icon color */
+}
+
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.8); /* Change button background color on hover */
+}
+
 
 header.container {
   width: 100%;
@@ -53,5 +95,8 @@ nav a:hover {
   color: #007BFF; /* Change the link color on hover */
 }
 
-
+.car-image {
+  width: 200px; /* Set your desired width here */
+  height: 150px; /* Set your desired height here */
+}
 
