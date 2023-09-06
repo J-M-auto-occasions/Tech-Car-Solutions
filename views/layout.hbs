@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 
-{{!-- <body>
+<body>
   <header class="container">
     <div class="row">
       <div class="col">
@@ -23,41 +23,55 @@
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <!-- Add your navigation links here -->
+              <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cars">Cars for Sale</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/cars/create">Create new car</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/profile">My Profile</a>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
       </div>
     </div>
   </header>
-</body> --}}
 
-<nav>
-  <a href="/">Home</a>
-  <a href="/cars">Cars for Sale</a>
-  <a href="/cars/create">Create new car</a>
-  <a href="/signup">Signup</a>
-  <a href="/login">Login</a>
-  <a href="/profile">Profile</a>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/cars">Cars for Sale</a>
+    <a href="/cars/create">Create new car</a>
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+    <a href="/profile">Profile</a>
 
-  <form id="logout-form" action="/logout" method="POST">
-    <button>Logout</button>
-  </form>
+    <form id="logout-form" action="/logout" method="POST">
+      <button>Logout</button>
+    </form>
 
-</nav>
+  </nav>
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-
-
-{{!-- <div>
-  <h1>Welcome to Tech Car Solutions</h1>
-  <p>Find your dream car</p>
-</div> --}}
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  </head>
 
 
-{{{body}}}
+  {{!-- <div>
+    <h1>Welcome to Tech Car Solutions</h1>
+    <p>Find your dream car</p>
+  </div> --}}
 
-<script src="/js/script.js"></script>
+
+  {{{body}}}
+
+  <script src="/js/script.js"></script>
 </body>
 
 </html>
