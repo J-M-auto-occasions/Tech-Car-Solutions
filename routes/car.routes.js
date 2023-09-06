@@ -2,6 +2,7 @@ const express = require('express');
 const Car = require("../models/Car.model");
 const User = require("../models/User.model")
 const router = express.Router();
+const fileUploader = require('../config/cloudinary.config')
 
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -39,13 +40,13 @@ router.get("/cars/create", isLoggedIn, (req, res, next) => {
     })
 })
 
-router.post("/cars/create", isLoggedIn, (req, res, next)=>{
+router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res, next)=>{
 
     const newCar = {
         owner: req.session.currentUser._id,
         make: req.body.make,
         model: req.body.model,
-        image: req.body.image,
+        image: req.file.path,
         price: req.body.price,
         seller: req.session.currentUser.username,
         year: req.body.year,
