@@ -6,44 +6,24 @@ body {
   padding: 0;
 }
 
-/* Custom CSS for smoother carousel movement
-.carousel-inner {
-  transition: transform 0.4s ease-in-out;
-}
-
-/* Optional: Adjust the slide transition speed */
-/* .carousel-item {
-  transition: transform 0.4s ease-in-out;
-} */
-
-/* Customize carousel control buttons */
-/* .carousel-control-prev,
-.carousel-control-next {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 10%;
-  padding: 0px;
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: #fff;
-}
-
-.carousel-control-prev-icon::before,
-.carousel-control-next-icon::before {
-  content: '‹'; /* Left arrow (‹) and right arrow (›) symbols */
-
-
-/* .carousel-control-prev:hover,
-.carousel-control-next:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}  */
-
 header.container {
   width: 100%;
   background-color: #6b6b6b; 
   text-align: center;
   padding: 12px 0;
+}
+
+/* Custom CSS */
+h1 {
+  font-family: 'Your Font', sans-serif;
+  font-size: 36px;
+  color: #333;
+}
+
+p {
+  font-family: 'Your Font', sans-serif;
+  font-size: 18px;
+  color: #666;
 }
 
 .nav-item {
