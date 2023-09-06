@@ -1,10 +1,10 @@
-/* body {
+body {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0;
   padding: 0;
-} */
+}
 
 /* Custom CSS for smoother carousel movement
 .carousel-inner {
@@ -39,28 +39,28 @@
   background-color: rgba(0, 0, 0, 0.8);
 }  */
 
-/* header.container {
+header.container {
   width: 100%;
   background-color: #6b6b6b; 
   text-align: center;
   padding: 12px 0;
-} */
+}
 
-/* .navbar-brand {
+.navbar-brand {
   color: rgb(0, 0, 0); 
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
-} */
+}
 
-/* nav {
+nav {
   background-color: #f8f9fa; 
   padding: 10px 0;
   width: 100%;
   text-align: center;
-} */
+}
 
-/* nav a {
+nav a {
   color: #333; 
   text-decoration: none;
   margin: 0 10px;
@@ -75,7 +75,7 @@ nav a:hover {
 .car-image {
   width: 200px;
   height: 150px; 
-} */
+} 
 
 
 body {
