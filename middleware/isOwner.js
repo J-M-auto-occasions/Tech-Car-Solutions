@@ -9,7 +9,7 @@ async function isOwner(req, res, next) {
         next()
     } else {
         res.status(401)
-            .render("error", { errorMessage: "Unauthorized", currentUser: req.session.currentUser });
+            .render("unauthorized", { errorMessage: "Unauthorized", currentUser: req.session.currentUser });
     }
 
 }
