@@ -1,16 +1,22 @@
 {{#if currentUser}}
 <h1>Welcome {{currentUser.username}}</h1>
 <p>This is your profile page my friend!</p>
+    
+    
+    {{#if cars}}
+        <br>
+        <h2>Your current cars for sale</h2>
+        <br>
 
-<h2>Your current cars for sale</h2>
-<br>
-{{#each cars}}
-<br>
-<h3><a href="/cars/{{this._id}}">{{this.make}} {{this.model}}</a></h3>
+
+        {{#each cars}}
+        <br>
+        <h3><a href="/cars/{{this._id}}">{{this.make}} {{this.model}}</a></h3>
 
 
-{{/each}}
-
+        {{/each}}
+    {{/if}}
+    
 
 {{else}}
 <h1>User not logged in.</h1>
