@@ -35,6 +35,9 @@ p {
   font-size: 24px;
   font-weight: bold;
   text-decoration: none;
+  text-decoration: dotted;
+  text-shadow: #1a1a1a;
+  text-align: left ;
 }
 
 nav {
