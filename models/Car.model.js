@@ -25,7 +25,6 @@ const carSchema = new Schema(
         },
         seller: {
             type: String,
-            required: true // Marked as required
         },
         year: {
             type: Number,
