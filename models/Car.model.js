@@ -7,11 +7,26 @@ const carSchema = new Schema(
             type: Schema.Types.ObjectId,
             ref: "User"
         },
-        make: String,
-        model: String,
-        image: String,
-        price: Number,
-        seller: String,
+        make: {
+            type: String,
+            required: true // Marked as required
+        },
+        model: {
+            type: String,
+            required: true // Marked as required
+        },
+        image: {
+            type: String,
+            // required: true // Marked as required
+        },
+        price: {
+            type: Number,
+            required: true // Marked as required
+        },
+        seller: {
+            type: String,
+            required: true // Marked as required
+        },
         year: {
             type: Number,
         },
@@ -21,11 +36,13 @@ const carSchema = new Schema(
         transmission: {
             type: [String],
         },
-        power: String,
+        power: {
+            type: String,
+        },
         location: {
             type: String
             //country: String,
-           // city: String
+            // city: String
         }
     },
     {
