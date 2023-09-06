@@ -7,14 +7,14 @@ body {
 }
 
 /* Hide the carousel by default */
-.homepage-carousel {
+/* .homepage-carousel {
   display: none;
-}
+} */
 
 /* Display the carousel on the homepage */
-body.homepage .homepage-carousel {
+/* body.homepage .homepage-carousel {
   display: block;
-}
+} */
 
 /* Custom CSS for smoother carousel movement */
 .carousel-inner {
