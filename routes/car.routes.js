@@ -85,9 +85,16 @@ router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => 
 });
 
 // UPDATE: process form
-router.post("/cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
+router.post("/cars/:carId/edit", /*isLoggedIn,*/fileUploader.single('image'), (req, res, next) => {
     const { carId } = req.params;
-    const { make, model, image, price, seller, year, kmDriven, transmission, power, location } = req.body;
+    const { make, model, existingImage, price, seller, year, kmDriven, transmission, power, location } = req.body;
+
+    let image;
+    if(req.file){
+        image = req.file.path
+    } else{
+        image = existingImage
+    }
 
     Car.findByIdAndUpdate(carId, 
         { make, model, image, price, seller, year, kmDriven, transmission, power, location }, 
