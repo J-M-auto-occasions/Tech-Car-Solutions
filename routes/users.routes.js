@@ -5,7 +5,7 @@ const Car = require("../models/Car.model")
 /* GET home page */
 
 router.get("/profile", (req, res, next) => {
-  Car.find()
+  Car.find({owner: req.session.currentUser._id})
   .then((carsFromDB)=>{
     const data = {
       currentUser: req.session.currentUser,
@@ -19,15 +19,5 @@ router.get("/profile", (req, res, next) => {
 })
 
 });
-
-/*
-router.get("/profile", (req, res) => {
-
-  const data = {
-    currentUser: req.session.currentUser
-  }
-  res.render('auth/user-profile', data)
-})
-*/
 
 module.exports = router;
