@@ -115,8 +115,9 @@ nav a:hover {
   color: #ff6600;
   /* Change this color to your preference */
 }
-
-/* Style for the button */
+.button-container {
+  text-align: right;
+}
 #logout-form button {
   padding: 10px 20px;
   background-color: #007bff;
