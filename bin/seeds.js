@@ -67,10 +67,10 @@ mongoose
   .then((x) => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`);
 
-    return Car.deleteMany({}); //WARNING: this will delete all books in your DB !!
-  })
-  .then((response) => {
-    console.log(response);
+//     return Car.deleteMany({}); //WARNING: this will delete all cras in your DB !!
+//   })
+//   .then((response) => {
+//     console.log(response);
 
     return Car.insertMany(cars);
   })
