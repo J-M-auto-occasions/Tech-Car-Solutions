@@ -9,7 +9,6 @@ const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tech-car
 const cars = [
   {
     "year": 2016,
-
     "power": 365,
     "make": "bmw",
     "model": "m2",
@@ -26,7 +25,6 @@ const cars = [
   },
   {
     "year": 2016,
-
     "power": 237,
     "make": "alfa-romeo",
     "model": "4c-spider",
@@ -35,7 +33,6 @@ const cars = [
   },
   {
     "year": 2016,
-
     "power": 565,
     "make": "aston-martin",
     "model": "v12-vantage-s",
@@ -44,7 +41,6 @@ const cars = [
   },
   {
     "year": 2017,
-
     "power": 380,
     "make": "jaguar",
     "model": "f-pace",
@@ -53,7 +49,6 @@ const cars = [
   },
   {
     "year": 2016,
-
     "power": 204,
     "make": "audi",
     "model": "a3-sportback-e-tron",
