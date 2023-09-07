@@ -1,27 +1,47 @@
-<div id="login-form">
-  <h2>Log In</h2>
-  <form action="/login" method="POST">
 
-    <label> Username
-      <input type="text" name="username" placeholder="Your username" />
-    </label>
+<section class="text-center">
 
-    <label> Email
-      <input type="email" name="email" placeholder="Your email" />
-    </label>
 
-    <label> Password
-      <input type="password" name="password" placeholder="Your password" />
-    </label>
+  <div class="card mx-4 mx-md-5 shadow-5-strong" style="
+        margin-top: 50px;
+        background: hsla(0, 0%, 100%, 0.8);
+        backdrop-filter: blur(30px);
+        ">
+    <div class="card-body py-5 px-md-5">
 
-    <button type="submit">Log In</button>
+      <div class="row d-flex justify-content-center">
+        <div class="col-lg-8">
+          <h2 class="fw-bold mb-5">Log in</h2>
+          <form action="/login" method="POST">
 
-   <div class="info">
-        <p>If you don't have an account, click <a href="/signup">here</a> to create one.</p>
+            <div class="form-outline mb-4">
+              <input type="email" name="email" class="form-control" />
+              <label class="form-label">Email address</label>
+            </div>
+
+            <div class="form-outline mb-4">
+              <input type="password" name="password" class="form-control" />
+              <label class="form-label" for="form3Example4">Password</label>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block mb-4">
+              Log in
+            </button>
+            {{#if errorMessage}}
+            <p class="error">{{errorMessage}}</p>
+            {{/if}}
+          </form>
+          <p>Don't have an account? <a href="/signup" class="link-info">Register here</a></p>
+
+        </div>
+        </form>
+      </div>
     </div>
-
-    {{#if errorMessage}}
-      <p class="error">{{errorMessage}}</p>
-    {{/if}}
-  </form>
+  </div>
+  </div>
 </div>
+</section>
+
+
+
+
