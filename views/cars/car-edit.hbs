@@ -8,13 +8,13 @@
         <div class="row">
             <div class="col-md">
                 <div class="form-floating">
-                    <input type="text" name="make" value="{{car.make}}" class="form-control" placeholder="brand">
+                    <input type="text" name="make" value="{{car.make}}" class="form-control" placeholder="brand" required>
                     <label class="form-label">Make</label>
                 </div>
             </div>
             <div class="col-md">
                 <div class="form-floating">
-                    <input type="text" name="model" value="{{car.model}}" class="form-control" placeholder="brand">
+                    <input type="text" name="model" value="{{car.model}}" class="form-control" placeholder="brand" required>
                     <label class="form-label">Model</label>
                 </div>
             </div>
@@ -29,7 +29,7 @@
         </div>
 
         <div class="form-floating">
-            <input type="number" name="price" value="{{car.price}}" class="form-control" placeholder="Price">
+            <input type="number" name="price" value="{{car.price}}" class="form-control" placeholder="Price" required>
             <label class="form-label">Price in euros</label>
         </div>
 
@@ -100,7 +100,7 @@
         </div>
 
         <div class="form-floating">
-            <input type="text" name="location" value="{{car.location}}" class="form-control" placeholder="Location">
+            <input type="text" name="location" value="{{car.location}}" class="form-control" placeholder="Location" required>
             <label class="form-label">Location</label>
 
         </div>
