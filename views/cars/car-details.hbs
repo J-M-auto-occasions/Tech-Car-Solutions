@@ -30,6 +30,21 @@
 <h3>location:</h3>
 <p>{{this.location}}</p>
 
+<div class="card mb-3">
+    <img src="{{this.image}}" class="card-img" alt="{{this.model}}">
+    <div class="card-body">
+        <h5 class="card-title">{{this.make}} {{this.model}}</h5>
+        <h7 class="card-subtitle">Prices: {{this.price}}</h7>
+        <p class="card-text">Year: {{this.year}}</p>
+        <p class="card-text">Location: {{this.location}} </p>
+        <p class="card-text">km driven: {{this.kmDriven}} </p>
+        <p class="card-text">Transmission: {{this.transmission}} </p>
+        <p class="card-text">Power: {{this.power}} hp </p>
+        <p class="card-text">Transmission: {{this.transmission}} </p>
+        <p class="card-text"><small class="text-muted"> Seller: {{this.seller}}</small></p>
+    </div>
+</div>
+
 
 <a href="/cars/{{this._id}}/edit">Edit</a>
 
