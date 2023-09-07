@@ -3,7 +3,7 @@
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
                         width="150px">
-                         <img src="/images/billybob.jpeg" class="img-thumbnail" alt="billy"><span        
+                         <img src="/images/personEmoji.jpeg" class="img-thumbnail" alt="billy"><span        
                         class="font-weight-bold">{{currentUser.username}}</span><span
                         class="text-black-50">{{currentUser.email}}</span><span> </span></div>
             </div>
@@ -43,10 +43,7 @@
 
     <body>
     <div class="containerProfile">
-        <p class="fw-boBlder">older weight text (relative to the parent element).</p>
         {{#if currentUser}}
-        <h1>{{currentUser.username}}</h1>
-        <p class="fw-boBlder">See your added vehicles below</p>
 
         {{#if cars}}
         <h2>Your current cars for sale</h2>
