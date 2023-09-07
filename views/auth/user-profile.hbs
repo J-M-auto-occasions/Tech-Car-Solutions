@@ -1,59 +1,11 @@
-{{!-- {{#if currentUser}}
-<h1>Welcome {{currentUser.username}}</h1>
-<p>This is your profile page my friend!</p>
-
-
-{{#if cars}}
-<br>
-<h2>Your current cars for sale</h2>
-<br>
-
-
-{{#each cars}}
-<br>
-<h3><a href="/cars/{{this._id}}">{{this.make}} {{this.model}}</a></h3>
-
-
-{{/each}}
-{{/if}}
-
-
-{{else}}
-<h1>User not logged in.</h1>
-{{/if}} --}}
-
-<body>
-    <div class="containerProfile">
-        {{#if currentUser}}
-        <h1>Hello {{currentUser.username}}</h1>
-        <p>Please add your additional information below</p>
-
-        {{#if cars}}
-        <br>
-        <h2>Your current cars for sale</h2>
-        <br>
-
-        {{#each cars}}
-        <br>
-        <h3><a href="/cars/{{this._id}}">{{this.make}} {{this.model}}</a></h3>
-        {{/each}}
-
-        {{else}}
-        <p>You don't have any cars for sale.</p>
-        {{/if}}
-
-        {{else}}
-        <h1>User not logged in.</h1>
-        {{/if}}
-    </div>
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5"
-                        width="150px"
-                        src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span
-                        class="font-weight-bold">Edogaru</span><span
-                        class="text-black-50">edogaru@mail.com.my</span><span> </span></div>
+                        width="150px">
+                         <img src="/images/billybob.jpeg" class="img-thumbnail" alt="billy"><span        
+                        class="font-weight-bold">{{currentUser.username}}</span><span
+                        class="text-black-50">{{currentUser.email}}</span><span> </span></div>
             </div>
             <div class="col-md-5 border-right">
                 <div class="p-3 py-5">
@@ -62,15 +14,15 @@
                     </div>
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control"
-                                placeholder="first name" value=""></div>
+                                placeholder="first name" value="{{currentUser.username}}"></div>
                         <div class="col-md-6"><label class="labels">Surname</label><input type="text"
                                 class="form-control" value="" placeholder="surname"></div>
                     </div>
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Mobile Number</label><input type="text"
                                 class="form-control" placeholder="enter phone number" value=""></div>
-                        <div class="col-md-12"><label class="labels">Email ID</label><input type="text"
-                                class="form-control" placeholder="enter email id" value=""></div>
+                        <div class="col-md-12"><label class="labels">Email</label><input type="text"
+                                class="form-control" placeholder="email" value="{{currentUser.email}}"></div>
                         <div class="col-md-12"><label class="labels">Education</label><input type="text"
                                 class="form-control" placeholder="education" value=""></div>
                     </div>
@@ -87,4 +39,27 @@
         </div>
     </div>
     </div>
+    </div>
+
+    <body>
+    <div class="containerProfile">
+        <p class="fw-boBlder">older weight text (relative to the parent element).</p>
+        {{#if currentUser}}
+        <h1>{{currentUser.username}}</h1>
+        <p class="fw-boBlder">See your added vehicles below</p>
+
+        {{#if cars}}
+        <h2>Your current cars for sale</h2>
+
+        {{#each cars}}
+        <h3><a href="/cars/{{this._id}}">{{this.make}} {{this.model}}</a></h3>
+        {{/each}}
+
+        {{else}}
+        <p>You don't have any cars for sale.</p>
+        {{/if}}
+
+        {{else}}
+        <h1>User not logged in.</h1>
+        {{/if}}
     </div>
