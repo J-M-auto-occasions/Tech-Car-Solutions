@@ -27,9 +27,19 @@ const projectName = "tech-car-solutions";
 
 app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
+hbs.registerHelper("isOwner", (user, car) =>{
+    if(car.owner && String(car.owner) === user._id  ){
+        return `<a href="/cars/${car._id}/edit">Edit</a>`
+    }
+    else {
+        return }
+})
+
 app.use((req, res, next) => {
     if(req.session.currentUser){
-        app.locals.user = req.session.currentUser
+        app.locals.user = req.session
+    }else{
+        app.locals.user = null
     }
     next()
 })

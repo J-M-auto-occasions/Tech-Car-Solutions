@@ -147,6 +147,7 @@ router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
 router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
     if (err) next(err);
+    res.clearCookie("connect.sid")
     res.redirect('/')
   });
 });
