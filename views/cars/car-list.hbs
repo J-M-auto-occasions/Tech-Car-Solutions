@@ -2,10 +2,10 @@
 <br>
 <h1>Cars for sale:</h1>
 <br>
-{{#each cars}}
+{{!-- {{#each cars}}
 <section>
     <h2>{{this.make}} {{this.model}}</h2>
-       <img src={{this.image}} alt=""> 
+    <img src={{this.image}} alt="">
     <p>
         Prices: {{this.price}} <br />
         Seller: {{this.seller}} <br />
@@ -18,11 +18,30 @@
         <a href="/cars/{{this._id}}/edit">Edit</a>
     </p>
 
-   <form action="/cars/{{_id}}/delete" method="POST">
+    <form action="/cars/{{_id}}/delete" method="POST">
         <button>Delete</button>
     </form>
 
 </section>
 
 <hr />
+{{/each}} --}}
+{{#each cars}}
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <img src="{{this.image}}" class="img-fluid rounded-start" alt="{{this.model}}">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{this.make}} {{this.model}}</h5>
+                <h7 class="card-subtitle">Prices: {{this.price}}</h7>
+                <p class="card-text">Year: {{this.year}}</p>
+                <p class="card-text">Location: {{this.location}} </p>
+                <p class="card-text"><small class="text-muted"> Seller: {{this.seller}}</small></p>
+                        <a href="/cars/{{this._id}}">More details</a>
+            </div>
+        </div>
+    </div>
+</div>
 {{/each}}
