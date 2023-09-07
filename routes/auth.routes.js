@@ -144,14 +144,12 @@ router.post("/login", /*isLoggedOut,*/ (req, res, next) => {
 });
 
 // GET /auth/logout
-router.post("/logout", /*isLoggedIn,*/ (req, res, next) => {
+router.post("/logout", isLoggedIn, (req, res, next) => {
   req.session.destroy((err) => {
     if (err) next(err);
     res.redirect('/')
   });
 });
-
-
 
 module.exports = router;
 

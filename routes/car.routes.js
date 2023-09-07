@@ -31,7 +31,6 @@ router.get("/cars/create", isLoggedIn, (req, res, next) => {
         const data = {
             users: usersFromDB
         }
-        console.log(req.session.currentUser)
         res.render("cars/car-create", data)
     })
     .catch(e => {

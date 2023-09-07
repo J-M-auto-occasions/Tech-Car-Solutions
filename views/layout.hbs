@@ -31,14 +31,23 @@
           <li class="nav-item">
             <a class="nav-link" href="/cars/create">Create new car</a>
           </li>
+          {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/profile">My Profile</a>
+            {{/if}}
+
+            {{#unless user}}
           <li class="nav-item">
             <a class="nav-link" href="/signup">Signup</a>
+            {{/unless }}
+
+            {{#unless user}}
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          {{#if currentUser}}
+          {{/unless}}
+
+          {{#if user}}
           <form id="logout-form" action="/logout" method="POST">
             <button class="btn btn-primary">Logout</button>
           </form>
