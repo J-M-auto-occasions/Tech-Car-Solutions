@@ -5,7 +5,7 @@ require('dotenv').config(); // import and configure dotenv (loads environment va
 
 const MONGO_URI = process.env.MONGODB_URI || 'mongodb+srv://jmauto:Welcome2023!@cluster0.sfl8q5o.mongodb.net/tech-car-solutions?retryWrites=true&w=majority';
 
-// const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tech-auto-solutions';
+// const MONGO_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/tech-car-solutions';
 
 //this is a large list of cars
 const cars = [
