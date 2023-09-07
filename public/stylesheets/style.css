@@ -7,17 +7,11 @@
   padding: 0%;
 }
 
-.card {
-  width: 5%;
-  height: 5%;
-  padding: 2%;
-}
+/* .card {
 
-/* .card mb-3 {
-  width: 30%;
-  height: 40%;
-  padding: 5%;
+  padding: 2%;
 } */
+
 
 body {
   font-family: Arial, sans-serif;
