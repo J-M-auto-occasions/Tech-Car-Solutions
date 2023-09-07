@@ -34,7 +34,7 @@
           {{#if user}}
           <li class="nav-item">
             <a class="nav-link" href="/profile">My Profile</a>
-            {{/if}}
+          {{/if}}
 
             {{#unless user}}
           <li class="nav-item">
@@ -45,7 +45,7 @@
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          {{/unless}}
+            {{/unless}}
 
           {{#if user}}
           <form id="logout-form" action="/logout" method="POST">

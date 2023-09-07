@@ -31,21 +31,22 @@
 <p>{{this.location}}</p> --}}
 
 <div class="card" style="width: 26rem;">
-    <img src="{{this.image}}" class="card-img" alt="{{this.model}}">
+    <img src="{{carFromDB.image}}" class="card-img" alt="{{carFromDB.model}}">
     <div class="card-body">
-        <h5 class="card-title">{{this.make}} {{this.model}}</h5>
-        <p class="card-text">Prices: {{this.price}}</p>
-        <p class="card-text">Year: {{this.year}}</p>
-        <p class="card-text">Location: {{this.location}} </p>
-        <p class="card-text">km driven: {{this.kmDriven}} </p>
-        <p class="card-text">Power: {{this.power}} hp </p>
-        <p class="card-text">Transmission: {{this.transmission}} </p>
-        <p class="card-text"><small class="text-muted"> Seller: {{this.seller}}</small></p>
+        <h5 class="card-title">{{carFromDB.make}} {{carFromDB.model}}</h5>
+        <p class="card-text">Prices: {{carFromDB.price}}</p>
+        <p class="card-text">Year: {{carFromDB.year}}</p>
+        <p class="card-text">Location: {{carFromDB.location}} </p>
+        <p class="card-text">km driven: {{carFromDB.kmDriven}} </p>
+        <p class="card-text">Power: {{carFromDB.power}} hp </p>
+        <p class="card-text">Transmission: {{carFromDB.transmission}} </p>
+        <p class="card-text"><small class="text-muted"> Seller: {{carFromDB.seller}}</small></p>
     </div>
 </div>
 
+{{#isOwner user carFromDB }}
+{{/isOwner}}
 
-<a href="/cars/{{this._id}}/edit">Edit</a>
 
 
 <hr />

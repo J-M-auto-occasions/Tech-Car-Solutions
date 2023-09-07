@@ -68,7 +68,7 @@ router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res,
 // edit cars from DB 
 
 router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => {
-    const {} = req.body
+    
     const { carId } = req.params;
 
     try {
@@ -78,6 +78,7 @@ router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => 
             car: carDetails,
         }
         res.render("cars/car-edit", data)
+        return
     } catch (error) {
         next(error)
     }
@@ -118,7 +119,7 @@ router.get("/cars/:carId", (req, res, next) => {
     const id = req.params.carId;
     Car.findById(id)
         .then(carFromDB => {
-            res.render("cars/car-details", carFromDB);
+            res.render("cars/car-details", {user: req.session.currentUser, carFromDB});
         })
         .catch((e) => {
             console.log("Error getting book details from DB", e);
