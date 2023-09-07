@@ -1,6 +1,6 @@
 <h1>{{this.make}}</h1>
 
-<hr />
+{{!-- <hr />
 
 <h3>Model:</h3>
 <p>{{this.model}}</p>
@@ -28,7 +28,21 @@
 <p>{{this.power}} horsepower</p>
 
 <h3>location:</h3>
-<p>{{this.location}}</p>
+<p>{{this.location}}</p> --}}
+
+<div class="card" style="width: 26rem;">
+    <img src="{{this.image}}" class="card-img" alt="{{this.model}}">
+    <div class="card-body">
+        <h5 class="card-title">{{this.make}} {{this.model}}</h5>
+        <p class="card-text">Prices: {{this.price}}</p>
+        <p class="card-text">Year: {{this.year}}</p>
+        <p class="card-text">Location: {{this.location}} </p>
+        <p class="card-text">km driven: {{this.kmDriven}} </p>
+        <p class="card-text">Power: {{this.power}} hp </p>
+        <p class="card-text">Transmission: {{this.transmission}} </p>
+        <p class="card-text"><small class="text-muted"> Seller: {{this.seller}}</small></p>
+    </div>
+</div>
 
 
 <a href="/cars/{{this._id}}/edit">Edit</a>

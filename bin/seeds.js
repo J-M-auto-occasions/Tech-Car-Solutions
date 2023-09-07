@@ -19,7 +19,6 @@ const cars = [
     "kmDriven": 100000,
     "transmission": "manual",
     "location": "Texas",
-    // "transmission":
     "price": 51700,
     "image": "https://hips.hearstapps.com/hmg-prod/amv-prod-cad-assets/images/16q1/665019/2016-bmw-m2-full-test-review-car-and-driver-photo-665835-s-original.jpg?crop=0.891xw:0.730xh;0.0561xw,0.113xh&resize=1200:*"
   },
