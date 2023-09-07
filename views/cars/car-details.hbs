@@ -1,15 +1,17 @@
 <h1>{{this.make}}</h1>
 <br>
 <br>
+
+
 <div class="carsDetailsTitle">
     <h1>Car details:</h1>
 </div>
 
-<div class="card" style="width: 26rem;">
+<div class="card" style="md-width: 26rem; ">
     <img src="{{carFromDB.image}}" class="card-img" alt="{{carFromDB.model}}">
     <div class="card-body">
         <h5 class="card-title">{{carFromDB.make}} {{carFromDB.model}}</h5>
-        <p class="card-text">Prices: {{carFromDB.price}}</p>
+        <p class="card-text">Price: {{carFromDB.price}} euros</p>
         <p class="card-text">Year: {{carFromDB.year}}</p>
         <p class="card-text">Location: {{carFromDB.location}} </p>
         <p class="card-text">km driven: {{carFromDB.kmDriven}} </p>
@@ -17,13 +19,16 @@
         <p class="card-text">Transmission: {{carFromDB.transmission}} </p>
         <p class="card-text"><small class="text-muted"> Seller: {{carFromDB.seller}}</small></p>
     </div>
+<div class="px-4 mb-2">
+     <form action="/users/{{carFromDB.owner}}" method="POST"><button class="btn btn-danger">Contact the seller!</button></form>
+</div>
 </div>
 
 {{#isOwner user carFromDB }}
 {{/isOwner}}
 
-
-
 <hr />
 
-<a href="/cars">Back</a>
+<div class="px-4 mb-2">
+<a href="/cars"><button class="btn btn-secondary">Back</button></a>
+</div>

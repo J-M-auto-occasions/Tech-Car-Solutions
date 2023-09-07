@@ -9,8 +9,6 @@ const isLoggedOut = require("../middleware/isLoggedOut");
 const isOwner = require("../middleware/isOwner")
 
 
-//display cars from DB
-
 router.get("/cars", (req, res, next) => {
 
     Car.find()
@@ -23,23 +21,23 @@ router.get("/cars", (req, res, next) => {
         })
 })
 
-//create cars from DB
 
 router.get("/cars/create", isLoggedIn, (req, res, next) => {
     User.find()
-    .then( usersFromDB => {
-        const data = {
-            users: usersFromDB
-        }
-        res.render("cars/car-create", data)
-    })
-    .catch(e => {
-        console.log("error displating the form to create a car", e)
-        next(e)
-    })
+        .then(usersFromDB => {
+            const data = {
+                users: usersFromDB
+            }
+            res.render("cars/car-create", data)
+        })
+        .catch(e => {
+            console.log("error displating the form to create a car", e)
+            next(e)
+        })
 })
 
-router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res, next)=>{
+
+router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res, next) => {
 
     const newCar = {
         owner: req.session.currentUser._id,
@@ -56,19 +54,18 @@ router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res,
     }
 
     Car.create(newCar)
-    .then(()=>{
-        res.redirect("/cars")
-    })
-    .catch(e => {
-        console.log("error creating a new car", e)
-        next(e)
-    })
+        .then(() => {
+            res.redirect("/cars")
+        })
+        .catch(e => {
+            console.log("error creating a new car", e)
+            next(e)
+        })
 })
 
-// edit cars from DB 
 
-router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => {
-    
+router.get('/cars/:carId/edit', isLoggedIn, isOwner, async (req, res, next) => {
+
     const { carId } = req.params;
 
     try {
@@ -84,26 +81,25 @@ router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => 
     }
 });
 
-// UPDATE: process form
+
 router.post("/cars/:carId/edit", /*isLoggedIn,*/fileUploader.single('image'), (req, res, next) => {
     const { carId } = req.params;
     const { make, model, existingImage, price, seller, year, kmDriven, transmission, power, location } = req.body;
 
     let image;
-    if(req.file){
+    if (req.file) {
         image = req.file.path
-    } else{
+    } else {
         image = existingImage
     }
 
-    Car.findByIdAndUpdate(carId, 
-        { make, model, image, price, seller, year, kmDriven, transmission, power, location }, 
+    Car.findByIdAndUpdate(carId,
+        { make, model, image, price, seller, year, kmDriven, transmission, power, location },
         { new: true })
-        .then(updatedCar => res.redirect(`/cars`)) // go to the details page to see the updates
+        .then(updatedCar => res.redirect(`/cars`))
         .catch(error => next(error));
 });
 
-// DELETE: delete book
 router.post("/cars/:carId/delete", isLoggedIn, isOwner, (req, res, next) => {
     const { carId } = req.params;
 
@@ -113,22 +109,30 @@ router.post("/cars/:carId/delete", isLoggedIn, isOwner, (req, res, next) => {
 });
 
 
-
-// READ: display details of car
 router.get("/cars/:carId", (req, res, next) => {
     const id = req.params.carId;
     Car.findById(id)
         .then(carFromDB => {
-            res.render("cars/car-details", {user: req.session.currentUser, carFromDB});
+            res.render("cars/car-details", { user: req.session.currentUser, carFromDB });
         })
         .catch((e) => {
-            console.log("Error getting book details from DB", e);
+            console.log("Error getting car details from DB", e);
             next(e);
         })
 
 })
 
-
+router.post("/users/:userId", (req, res,next) => {
+    const id = req.params.userId
+    User.findById(id)
+    .then(carSeller => {
+        res.render("users/users", {carSeller})
+    })
+    .catch((e) => {
+        console.log("Error getting the seller details from DB", e);
+        next(e);
+    })
+})
 
 
 module.exports = router

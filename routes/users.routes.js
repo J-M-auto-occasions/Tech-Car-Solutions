@@ -3,7 +3,6 @@ const router = express.Router();
 const Car = require("../models/Car.model")
 const isLoggedIn = require("../middleware/isLoggedIn")
 
-/* GET home page */
 
 router.get("/profile", isLoggedIn, (req, res, next) => {
   Car.find({owner: req.session.currentUser._id})

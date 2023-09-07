@@ -36,8 +36,6 @@ const carSchema = new Schema(
         },
         location: {
             type: String
-            //country: String,
-            // city: String
         }
     },
     {
