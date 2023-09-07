@@ -31,20 +31,6 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.myCarousel {
-  border: #333;
-}
-
-.carousel slide {
-  padding: 10px;
-  padding-top: 5%;
-}
-
-.carousel-control-prev,
-.carousel-control-next {
-  color: #0a0707
-}
-
 .carsSaleTitle {
   padding-left: 20px;
   text-align: center;
@@ -83,12 +69,6 @@ a:hover {
   padding: 20px;
 }
 
-/* Style the individual card */
-.card {
-  max-width: 500px;
-  margin: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 /* Style the card image */
 .card img {
@@ -102,22 +82,10 @@ a:hover {
   padding: 20px;
 }
 
-/* Style the card title */
-.card-title {
-  font-size: 1.25rem;
-}
-
 /* Style the card subtitle */
 .card-subtitle {
   font-size: 1rem;
   color: #777;
-}
-
-/* Style the "More details" link */
-.card a {
-  color: #007BFF;
-  text-decoration: none;
-  font-weight: bold;
 }
 
 .card a:hover {
