@@ -2,6 +2,7 @@ const express = require('express');
 const Car = require("../models/Car.model");
 const User = require("../models/User.model")
 const router = express.Router();
+const fileUploader = require('../config/cloudinary.config')
 
 const isLoggedIn = require("../middleware/isLoggedIn");
 const isLoggedOut = require("../middleware/isLoggedOut");
@@ -39,13 +40,13 @@ router.get("/cars/create", isLoggedIn, (req, res, next) => {
     })
 })
 
-router.post("/cars/create", isLoggedIn, (req, res, next)=>{
+router.post("/cars/create", fileUploader.single('image'), isLoggedIn, (req, res, next)=>{
 
     const newCar = {
         owner: req.session.currentUser._id,
         make: req.body.make,
         model: req.body.model,
-        image: req.body.image,
+        image: req.file.path,
         price: req.body.price,
         seller: req.session.currentUser.username,
         year: req.body.year,
@@ -53,13 +54,10 @@ router.post("/cars/create", isLoggedIn, (req, res, next)=>{
         transmission: req.body.transmission,
         power: req.body.power,
         location: req.body.location
-        //embedded elements still must be populated
     }
 
     Car.create(newCar)
     .then(()=>{
-
-        console.log(newCar)
         res.redirect("/cars")
     })
     .catch(e => {
@@ -87,9 +85,16 @@ router.get('/cars/:carId/edit', isLoggedIn, isOwner, async  (req, res, next) => 
 });
 
 // UPDATE: process form
-router.post("/cars/:carId/edit", /*isLoggedIn,*/ (req, res, next) => {
+router.post("/cars/:carId/edit", /*isLoggedIn,*/fileUploader.single('image'), (req, res, next) => {
     const { carId } = req.params;
-    const { make, model, image, price, seller, year, kmDriven, transmission, power, location } = req.body;
+    const { make, model, existingImage, price, seller, year, kmDriven, transmission, power, location } = req.body;
+
+    let image;
+    if(req.file){
+        image = req.file.path
+    } else{
+        image = existingImage
+    }
 
     Car.findByIdAndUpdate(carId, 
         { make, model, image, price, seller, year, kmDriven, transmission, power, location }, 
