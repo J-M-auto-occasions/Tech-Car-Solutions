@@ -21,7 +21,7 @@ hbs.registerHelper("isOwner", (user, car) => {
         <form action="/cars/${car._id}/delete" method="POST"><button class="btn btn-danger">Delete</button></form>`
     }
     else {
-        return `</br>`
+        return
     }
 })
 
