@@ -29,7 +29,8 @@ app.locals.appTitle = `${capitalize(projectName)} created with IronLauncher`;
 
 hbs.registerHelper("isOwner", (user, car) =>{
     if(car.owner && String(car.owner) === user._id  ){
-        return `<a href="/cars/${car._id}/edit">Edit</a>`
+        return `<a href="/cars/${car._id}/edit"><button class="btn btn-primary" type="submit"> Edit </button></a>
+        <a href="/cars/${car._id}/delete"><button class="btn btn-danger">Delete</button></form>`
     }
     else {
         return }

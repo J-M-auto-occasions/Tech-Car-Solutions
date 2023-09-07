@@ -9,19 +9,15 @@ const carSchema = new Schema(
         },
         make: {
             type: String,
-            required: true // Marked as required
         },
         model: {
             type: String,
-            required: true // Marked as required
         },
         image: {
             type: String,
-            // required: true // Marked as required
         },
         price: {
             type: Number,
-            required: true // Marked as required
         },
         seller: {
             type: String,
