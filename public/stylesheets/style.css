@@ -3,10 +3,21 @@
   padding: 0;
 }
 
-.card mb-3 {
+.homepage {
+  padding: 0%;
+}
+
+.card {
+  width: 5%;
+  height: 5%;
+  padding: 2%;
+}
+
+/* .card mb-3 {
   width: 30%;
   height: 40%;
-}
+  padding: 5%;
+} */
 
 body {
   font-family: Arial, sans-serif;
@@ -23,6 +34,15 @@ body {
   border: 1px solid #ccc;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.myCarousel {
+  border: #333;
+}
+
+.carousel slide {
+  padding: 10px;
+}
+
 
 h1 {
   color: #333;
