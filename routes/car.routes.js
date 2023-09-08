@@ -82,7 +82,7 @@ router.get('/cars/:carId/edit', isLoggedIn, isOwner, async (req, res, next) => {
 });
 
 
-router.post("/cars/:carId/edit", /*isLoggedIn,*/fileUploader.single('image'), (req, res, next) => {
+router.post("/cars/:carId/edit", fileUploader.single('image'), (req, res, next) => {
     const { carId } = req.params;
     const { make, model, existingImage, price, seller, year, kmDriven, transmission, power, location } = req.body;
 
@@ -123,16 +123,16 @@ router.get("/cars/:carId", (req, res, next) => {
 
 })
 
-router.post("/users/:userId", (req, res,next) => {
+router.post("/users/:userId", (req, res, next) => {
     const id = req.params.userId
     User.findById(id)
-    .then(carSeller => {
-        res.render("users/users", {carSeller})
-    })
-    .catch((e) => {
-        console.log("Error getting the seller details from DB", e);
-        next(e);
-    })
+        .then(carSeller => {
+            res.render("users/users", { carSeller })
+        })
+        .catch((e) => {
+            console.log("Error getting the seller details from DB", e);
+            next(e);
+        })
 })
 
 

@@ -37,7 +37,7 @@ router.get('/users/:userId/edit', async (req, res, next) => {
 });
 
 
-router.post("/users/:userId/edit", /*isLoggedIn,*/fileUploader.single('image'), (req, res, next) => {
+router.post("/users/:userId/edit", fileUploader.single('image'), (req, res, next) => {
   console.log("Hola", req.params)
   console.log("Hola", req.body)
 
