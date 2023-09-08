@@ -4,7 +4,6 @@ require("./db");
 const express = require("express");
 const hbs = require("hbs");
 const app = express();
-//const isLoggedIn = require("../middleware/isLoggedIn");
 
 require("./config")(app);
 

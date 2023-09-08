@@ -17,6 +17,9 @@
         <p class="card-text">Transmission: {{carFromDB.transmission}} </p>
         <p class="card-text"><small class="text-muted"> Seller: {{carFromDB.seller}}</small></p>
     </div>
+    <div class="px-4 mb-2">
+     <form action="/users/{{carFromDB.owner}}" method="POST"><button class="btn btn-danger">Contact the seller!</button></form>
+</div>
 </div>
 
 {{#isOwner user carFromDB }}
@@ -26,4 +29,6 @@
 
 <hr />
 
-<a href="/cars">Back</a>
+<div class="px-4 mb-2">
+<a href="/cars"><button class="btn btn-secondary">Back</button></a>
+</div>

@@ -13,8 +13,8 @@ router.get("/signup", isLoggedOut, (req, res) => {
 });
 
 
-router.post("/signup", /*isLoggedOut,*/(req, res) => {
-  const { username, email, password } = req.body;
+router.post("/signup", (req, res) => {
+  const { username, email, password, image } = req.body;
 
 
   if (username === "" || email === "" || password === "") {
@@ -50,7 +50,7 @@ router.post("/signup", /*isLoggedOut,*/(req, res) => {
     .then((salt) => bcrypt.hash(password, salt))
     .then((hashedPassword) => {
 
-      return User.create({ username, email, password: hashedPassword });
+      return User.create({ username, email, password: hashedPassword, image });
     })
     .then((user) => {
       res.redirect("/login");
@@ -75,7 +75,7 @@ router.get("/login", isLoggedOut, (req, res) => {
 });
 
 
-router.post("/login", /*isLoggedOut,*/(req, res, next) => {
+router.post("/login", (req, res, next) => {
   const { username, email, password } = req.body;
 
   if (email === "" || password === "") {
