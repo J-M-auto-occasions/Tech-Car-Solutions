@@ -21,7 +21,8 @@ const userSchema = new Schema(
       required: [true, "Password required"]
     },
     image: {
-      type: String
+      type: String,
+      default: "images/personEmoji.jpeg"
     }
   },
   {
