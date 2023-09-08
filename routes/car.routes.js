@@ -100,6 +100,7 @@ router.post("/cars/:carId/edit", /*isLoggedIn,*/fileUploader.single('image'), (r
         .catch(error => next(error));
 });
 
+
 router.post("/cars/:carId/delete", isLoggedIn, isOwner, (req, res, next) => {
     const { carId } = req.params;
 

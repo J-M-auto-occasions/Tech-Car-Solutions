@@ -20,6 +20,9 @@ const userSchema = new Schema(
       type: String,
       required: [true, "Password required"]
     },
+    image: {
+      type: String
+    }
   },
   {
     timestamps: true,
